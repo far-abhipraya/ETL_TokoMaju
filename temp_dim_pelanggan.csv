@@ -1,0 +1,181 @@
+id_pelanggan,nama,jenis_kelamin,kota,provinsi
+C0001,Yuni Hidayat,Perempuan,Tidak Diketahui,Jawa Timur
+C0002,Anisa Hidayat,Perempuan,Batu,Jawa Timur
+C0003,Novi Kurniawan,Perempuan,Malang,Jawa Timur
+C0004,Yusuf Setiawan,Laki-laki,Batu,Jawa Timur
+C0005,Dian Wulandari,Perempuan,Surabaya,Jawa Timur
+C0006,Agus Susanto,Laki-laki,Bandung,Jawa Barat
+C0007,Indah Maulana,Perempuan,Malang,Jawa Timur
+C0008,Ayu Wijaya,Perempuan,Malang,Jawa Timur
+C0009,Indah Susanto,Perempuan,Bandung,Jawa Barat
+C0010,Nur Ramadhan,Perempuan,Malang,Jawa Timur
+C0011,Putri Hidayat,Perempuan,Malang,Jawa Timur
+C0012,Andi Wijaya,Laki-laki,Pasuruan,Jawa Timur
+C0013,Yuni Rahmawati,Perempuan,Sidoarjo,Jawa Timur
+C0014,Dewi Kurniawan,Perempuan,Malang,Jawa Timur
+C0015,Sari Wijaya,Perempuan,Kediri,Jawa Timur
+C0016,Wahyu Santoso,Laki-laki,Malang,Jawa Timur
+C0017,Dimas Lestari,Laki-laki,Tidak Diketahui,Jawa Timur
+C0018,Rina Rahmawati,Perempuan,Malang,Jawa Timur
+C0019,Nur Hidayat,Perempuan,Surabaya,Jawa Timur
+C0020,Anisa Hakim,Perempuan,Tidak Diketahui,Jawa Timur
+C0021,Lestari Nugroho,Perempuan,Sidoarjo,Jawa Timur
+C0022,Andi Setiawan,Laki-laki,Batu,Jawa Timur
+C0023,Dian Wijaya,Perempuan,Malang,Jawa Timur
+C0024,Nur Susanto,Perempuan,Tidak Diketahui,Jawa Timur
+C0025,Wulan Nugroho,Perempuan,Surabaya,Jawa Timur
+C0026,Siti Hidayat,Perempuan,Batu,Jawa Timur
+C0027,Joko Wulandari,Laki-laki,Semarang,Jawa Tengah
+C0028,Rizky Rahmawati,Laki-laki,Tidak Diketahui,Jawa Timur
+C0029,Wulan Santoso,Perempuan,Malang,Jawa Timur
+C0030,Rizky Permata,Laki-laki,Semarang,Jawa Tengah
+C0031,Ayu Ramadhan,Perempuan,Tidak Diketahui,Bali
+C0032,Anisa Wijaya,Perempuan,Semarang,Jawa Tengah
+C0033,Novi Saputra,Perempuan,Tidak Diketahui,Jawa Timur
+C0034,Dedi Firmansyah,Laki-laki,Malang,Jawa Timur
+C0035,Siti Firmansyah,Perempuan,Malang,Jawa Timur
+C0036,Hadi Susanto,Laki-laki,Jakarta,DKI Jakarta
+C0037,Maya Wijaya,Perempuan,Malang,Jawa Timur
+C0038,Rizky Wijaya,Laki-laki,Surabaya,Jawa Timur
+C0039,Yusuf Kurniawan,Laki-laki,Tidak Diketahui,Jawa Timur
+C0040,Lestari Nugroho,Perempuan,Tidak Diketahui,Jawa Timur
+C0041,Eko Hakim,Laki-laki,Bandung,Jawa Barat
+C0042,Indah Pratama,Perempuan,Malang,Jawa Timur
+C0043,Rina Permata,Perempuan,Tidak Diketahui,Jawa Timur
+C0044,Putri Nugroho,Perempuan,Malang,Jawa Timur
+C0045,Putri Kurniawan,Perempuan,Batu,Jawa Timur
+C0046,Dian Rahmawati,Perempuan,Denpasar,Bali
+C0047,Andi Hakim,Laki-laki,Surabaya,Jawa Timur
+C0048,Tika Saputra,Perempuan,Surabaya,Jawa Timur
+C0049,Dedi Susanto,Laki-laki,Malang,Jawa Timur
+C0050,Joko Ramadhan,Laki-laki,Batu,Jawa Timur
+C0051,Wulan Maulana,Perempuan,Bandung,Jawa Barat
+C0052,Nur Permata,Perempuan,Malang,Jawa Timur
+C0053,Eka Hakim,Perempuan,Pasuruan,Jawa Timur
+C0054,Ratna Wijaya,Perempuan,Sidoarjo,Jawa Timur
+C0055,Slamet Ramadhan,Laki-laki,Batu,Jawa Timur
+C0056,Dian Susanto,Perempuan,Tidak Diketahui,Jawa Timur
+C0057,Ratna Hidayat,Perempuan,Jakarta,DKI Jakarta
+C0058,Bayu Hakim,Laki-laki,Semarang,Jawa Tengah
+C0059,Yusuf Ramadhan,Laki-laki,Surabaya,Jawa Timur
+C0060,Slamet Wulandari,Laki-laki,Jakarta,DKI Jakarta
+C0061,Fitri Utami,Perempuan,Surabaya,Jawa Timur
+C0062,Wulan Ramadhan,Perempuan,Blitar,Jawa Timur
+C0063,Lina Pratama,Perempuan,Sidoarjo,Jawa Timur
+C0064,Hendra Lestari,Laki-laki,Denpasar,Bali
+C0065,Dian Ramadhan,Perempuan,Surabaya,Jawa Timur
+C0066,Joko Kurniawan,Laki-laki,Tidak Diketahui,Jawa Timur
+C0067,Wulan Pratama,Perempuan,Blitar,Jawa Timur
+C0068,Joko Lestari,Laki-laki,Malang,Jawa Timur
+C0069,Lina Santoso,Perempuan,Kediri,Jawa Timur
+C0070,Teguh Setiawan,Laki-laki,Denpasar,Bali
+C0071,Eko Wulandari,Laki-laki,Tidak Diketahui,Jawa Timur
+C0072,Yusuf Pratama,Laki-laki,Tidak Diketahui,Jawa Barat
+C0073,Siti Santoso,Perempuan,Bandung,Jawa Barat
+C0074,Indah Susanto,Perempuan,Batu,Jawa Timur
+C0075,Dimas Utami,Laki-laki,Surabaya,Jawa Timur
+C0076,Rina Rahmawati,Perempuan,Jakarta,DKI Jakarta
+C0077,Agus Wulandari,Laki-laki,Malang,Jawa Timur
+C0078,Arif Saputra,Laki-laki,Surabaya,Jawa Timur
+C0079,Yusuf Hakim,Laki-laki,Tidak Diketahui,Jawa Timur
+C0080,Eka Nugroho,Perempuan,Tidak Diketahui,Jawa Timur
+C0081,Teguh Pratama,Laki-laki,Kediri,Jawa Timur
+C0082,Eko Nugroho,Laki-laki,Malang,Jawa Timur
+C0083,Indah Firmansyah,Perempuan,Denpasar,Bali
+C0084,Wahyu Hakim,Laki-laki,Malang,Jawa Timur
+C0085,Gilang Utami,Laki-laki,Tidak Diketahui,Jawa Timur
+C0086,Yuni Permata,Perempuan,Malang,Jawa Timur
+C0087,Sari Lestari,Perempuan,Malang,Jawa Timur
+C0088,Yuni Pratama,Perempuan,Surabaya,Jawa Timur
+C0089,Putri Utami,Perempuan,Malang,Jawa Timur
+C0090,Eka Hidayat,Perempuan,Denpasar,Bali
+C0091,Anisa Lestari,Perempuan,Malang,Jawa Timur
+C0092,Ratna Hakim,Perempuan,Surabaya,Jawa Timur
+C0093,Yusuf Pratama,Laki-laki,Malang,Jawa Timur
+C0094,Wulan Utami,Perempuan,Sidoarjo,Jawa Timur
+C0095,Dian Wijaya,Perempuan,Tidak Diketahui,DKI Jakarta
+C0096,Hendra Rahmawati,Laki-laki,Malang,Jawa Timur
+C0097,Dedi Wijaya,Laki-laki,Malang,Jawa Timur
+C0098,Sari Wijaya,Perempuan,Bandung,Jawa Barat
+C0099,Hendra Hakim,Laki-laki,Pasuruan,Jawa Timur
+C0100,Eka Firmansyah,Perempuan,Malang,Jawa Timur
+C0101,Hendra Susanto,Laki-laki,Batu,Jawa Timur
+C0102,Agus Utami,Laki-laki,Malang,Jawa Timur
+C0103,Joko Wijaya,Laki-laki,Denpasar,Bali
+C0104,Anisa Permata,Perempuan,Batu,Jawa Timur
+C0105,Gilang Susanto,Laki-laki,Yogyakarta,DI Yogyakarta
+C0106,Lina Susanto,Perempuan,Surabaya,Jawa Timur
+C0107,Joko Wulandari,Laki-laki,Tidak Diketahui,Jawa Barat
+C0108,Arif Permata,Laki-laki,Tidak Diketahui,Jawa Timur
+C0109,Slamet Setiawan,Laki-laki,Kediri,Jawa Timur
+C0110,Nur Hakim,Perempuan,Tidak Diketahui,Jawa Timur
+C0111,Siti Saputra,Perempuan,Malang,Jawa Timur
+C0112,Arif Pratama,Laki-laki,Bandung,Jawa Barat
+C0113,Fitri Hidayat,Perempuan,Surabaya,Jawa Timur
+C0114,Gilang Utami,Laki-laki,Tidak Diketahui,DKI Jakarta
+C0115,Budi Permata,Laki-laki,Malang,Jawa Timur
+C0116,Wahyu Firmansyah,Laki-laki,Malang,Jawa Timur
+C0117,Joko Wulandari,Laki-laki,Batu,Jawa Timur
+C0118,Rudi Pratama,Laki-laki,Sidoarjo,Jawa Timur
+C0119,Teguh Hakim,Laki-laki,Malang,Jawa Timur
+C0120,Fajar Maulana,Laki-laki,Tidak Diketahui,Jawa Timur
+C0121,Fitri Lestari,Perempuan,Pasuruan,Jawa Timur
+C0122,Ayu Susanto,Perempuan,Sidoarjo,Jawa Timur
+C0123,Dedi Permata,Laki-laki,Surabaya,Jawa Timur
+C0124,Yusuf Permata,Laki-laki,Kediri,Jawa Timur
+C0125,Rina Saputra,Perempuan,Surabaya,Jawa Timur
+C0126,Eko Firmansyah,Laki-laki,Jakarta,DKI Jakarta
+C0127,Ayu Permata,Perempuan,Batu,Jawa Timur
+C0128,Yusuf Wulandari,Laki-laki,Blitar,Jawa Timur
+C0129,Dian Utami,Perempuan,Malang,Jawa Timur
+C0130,Novi Permata,Perempuan,Malang,Jawa Timur
+C0131,Yuni Wijaya,Perempuan,Surabaya,Jawa Timur
+C0132,Indah Wijaya,Perempuan,Malang,Jawa Timur
+C0133,Maya Wulandari,Perempuan,Sidoarjo,Jawa Timur
+C0134,Wulan Hidayat,Perempuan,Malang,Jawa Timur
+C0135,Lina Setiawan,Perempuan,Sidoarjo,Jawa Timur
+C0136,Budi Wijaya,Laki-laki,Tidak Diketahui,Jawa Timur
+C0137,Fajar Wijaya,Laki-laki,Sidoarjo,Jawa Timur
+C0138,Budi Lestari,Laki-laki,Surabaya,Jawa Timur
+C0139,Dimas Hakim,Laki-laki,Yogyakarta,DI Yogyakarta
+C0140,Fajar Maulana,Laki-laki,Tidak Diketahui,Jawa Timur
+C0141,Fajar Utami,Laki-laki,Malang,Jawa Timur
+C0142,Arif Utami,Laki-laki,Kediri,Jawa Timur
+C0143,Yuni Hidayat,Perempuan,Denpasar,Bali
+C0144,Indah Pratama,Perempuan,Bandung,Jawa Barat
+C0145,Hadi Wulandari,Laki-laki,Malang,Jawa Timur
+C0146,Ayu Wulandari,Perempuan,Kediri,Jawa Timur
+C0147,Tika Lestari,Perempuan,Malang,Jawa Timur
+C0148,Budi Saputra,Laki-laki,Denpasar,Bali
+C0149,Eko Permata,Laki-laki,Malang,Jawa Timur
+C0150,Agus Hidayat,Laki-laki,Surabaya,Jawa Timur
+C0151,Yuni Maulana,Perempuan,Tidak Diketahui,Jawa Timur
+C0152,Arif Utami,Laki-laki,Surabaya,Jawa Timur
+C0153,Ratna Setiawan,Perempuan,Semarang,Jawa Tengah
+C0154,Dewi Utami,Perempuan,Surabaya,Jawa Timur
+C0155,Ratna Hidayat,Perempuan,Malang,Jawa Timur
+C0156,Novi Hakim,Perempuan,Surabaya,Jawa Timur
+C0157,Anisa Wijaya,Perempuan,Tidak Diketahui,Jawa Timur
+C0158,Fitri Wijaya,Perempuan,Bandung,Jawa Barat
+C0159,Wahyu Nugroho,Laki-laki,Tidak Diketahui,DI Yogyakarta
+C0160,Fajar Permata,Laki-laki,Batu,Jawa Timur
+C0161,Dian Hidayat,Perempuan,Tidak Diketahui,DI Yogyakarta
+C0162,Maya Nugroho,Perempuan,Batu,Jawa Timur
+C0163,Dimas Permata,Laki-laki,Kediri,Jawa Timur
+C0164,Wahyu Ramadhan,Laki-laki,Kediri,Jawa Timur
+C0165,Wulan Saputra,Perempuan,Tidak Diketahui,Jawa Timur
+C0166,Ayu Utami,Perempuan,Semarang,Jawa Tengah
+C0167,Putri Santoso,Perempuan,Malang,Jawa Timur
+C0168,Lina Utami,Perempuan,Semarang,Jawa Tengah
+C0169,Dewi Kurniawan,Perempuan,Jakarta,DKI Jakarta
+C0170,Slamet Utami,Laki-laki,Sidoarjo,Jawa Timur
+C0171,Tika Saputra,Perempuan,Malang,Jawa Timur
+C0172,Joko Firmansyah,Laki-laki,Surabaya,Jawa Timur
+C0173,Indah Wijaya,Perempuan,Malang,Jawa Timur
+C0174,Dewi Susanto,Perempuan,Batu,Jawa Timur
+C0175,Teguh Wijaya,Laki-laki,Tidak Diketahui,Jawa Timur
+C0176,Slamet Setiawan,Laki-laki,Malang,Jawa Timur
+C0177,Dedi Kurniawan,Laki-laki,Malang,Jawa Timur
+C0178,Indah Kurniawan,Perempuan,Tidak Diketahui,Jawa Timur
+C0179,Wulan Lestari,Perempuan,Batu,Jawa Timur
+C0180,Putri Saputra,Perempuan,Blitar,Jawa Timur
