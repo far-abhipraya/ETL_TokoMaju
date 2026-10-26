@@ -5,8 +5,14 @@ df_penjualan = pd.read_csv("temp_penjualan.csv")
 df_produk = pd.read_csv("temp_produk.csv")
 df_pelanggan = pd.read_csv("temp_pelanggan.csv")
 
-# Bersihkan kolom harga_satuan: hapus "Rp", ".", spasi lalu ubah ke angka
 jumlah_awal = len(df_penjualan)
+
+# Cleaning df_penjualan
+# Bersihkan spasi di kolom id (PENTING agar bisa match dengan id di tabel dimensi)
+df_penjualan["id_produk"] = df_penjualan["id_produk"].astype(str).str.strip()
+df_penjualan["id_pelanggan"] = df_penjualan["id_pelanggan"].astype(str).str.strip()
+
+# Bersihkan kolom harga_satuan: hapus "Rp", ".", spasi lalu ubah ke angka
 df_penjualan["harga_satuan"] = (
     df_penjualan["harga_satuan"]
     .astype(str)
@@ -20,15 +26,25 @@ df_penjualan["harga_satuan"] = pd.to_numeric(df_penjualan["harga_satuan"], error
 df_penjualan["tanggal"] = pd.to_datetime(df_penjualan["tanggal"], format="mixed", dayfirst=True, errors="coerce")
 
 # Hapus duplikat
+sebelum = len(df_penjualan)
 df_penjualan = df_penjualan.drop_duplicates()
+print(f"Setelah hapus duplikat: {len(df_penjualan)} (hilang {sebelum - len(df_penjualan)})")
 
 # Hapus baris dengan qty negatif atau nol
+sebelum = len(df_penjualan)
 df_penjualan = df_penjualan[df_penjualan["qty"] > 0]
+print(f"Setelah hapus qty negatif/nol: {len(df_penjualan)} (hilang {sebelum - len(df_penjualan)})")
 
-# Hapus baris dengan harga tidak valid (NaN setelah konversi)
+# Hapus baris dengan harga/tanggal tidak valid (NaN setelah konversi)
+sebelum = len(df_penjualan)
 df_penjualan = df_penjualan.dropna(subset=["harga_satuan", "tanggal"])
+print(f"Setelah hapus harga/tanggal invalid: {len(df_penjualan)} (hilang {sebelum - len(df_penjualan)})")
 
-print(f"Jumlah transaksi setelah cleaning: {len(df_penjualan)}")
+print(f"Jumlah transaksi setelah cleaning: {len(df_penjualan)} (dari awal {jumlah_awal})")
+
+# Cleaning df_produk
+# Bersihkan spasi di id_produk juga (bukan cuma nama_produk)
+df_produk["id_produk"] = df_produk["id_produk"].astype(str).str.strip()
 
 # Bersihkan spasi di nama_produk
 df_produk["nama_produk"] = df_produk["nama_produk"].str.strip()
@@ -55,6 +71,10 @@ df_produk = df_produk.drop_duplicates(subset=["id_produk"]).reset_index(drop=Tru
 
 print(f"Jumlah produk unik: {len(df_produk)}")
 print(df_produk["kategori"].value_counts())
+
+# Cleaning df_pelanggan
+# Bersihkan spasi di id_pelanggan juga
+df_pelanggan["id_pelanggan"] = df_pelanggan["id_pelanggan"].astype(str).str.strip()
 
 # Ganti string kosong dengan NaN dulu
 df_pelanggan["kota"] = df_pelanggan["kota"].replace("", None)
@@ -100,10 +120,14 @@ jk_mapping = {
 df_pelanggan["jenis_kelamin"] = df_pelanggan["jenis_kelamin"].map(jk_mapping).fillna("Tidak Diketahui")
 
 # Standarisasi nomor telepon (hapus semua karakter selain angka)
-df_pelanggan["telepon"] = df_pelanggan["telepon"].str.replace(r"[^0-9]", "", regex=True)
+df_pelanggan["telepon"] = df_pelanggan["telepon"].astype(str).str.replace(r"[^0-9]", "", regex=True)
+
+# Hapus duplikat id_pelanggan juga, untuk jaga-jaga
+df_pelanggan = df_pelanggan.drop_duplicates(subset=["id_pelanggan"]).reset_index(drop=True)
 
 print(f"Jumlah pelanggan: {len(df_pelanggan)}")
 
+# Buat Tabel Dimensi
 tanggal_unik = df_penjualan["tanggal"].drop_duplicates().sort_values()
 
 # Dimensi Waktu
@@ -124,8 +148,15 @@ dim_produk = df_produk[["id_produk", "nama_produk", "kategori", "merek"]].copy()
 # Dimensi Pelanggan
 dim_pelanggan = df_pelanggan[["id_pelanggan", "nama", "jenis_kelamin", "kota", "provinsi"]].copy()
 
-# Fact Table
+# Buat Tabel Fakta
 fakta = df_penjualan.copy()
+
+# PENTING: buang transaksi yang id_produk atau id_pelanggan-nya
+# tidak terdaftar di tabel dimensi (mencegah error Foreign Key saat load)
+sebelum = len(fakta)
+fakta = fakta[fakta["id_produk"].isin(dim_produk["id_produk"])]
+fakta = fakta[fakta["id_pelanggan"].isin(dim_pelanggan["id_pelanggan"])]
+print(f"Buang transaksi dengan id_produk/id_pelanggan tidak valid: {sebelum - len(fakta)} baris dihapus")
 
 # Gabungkan dengan dim_waktu untuk dapat id_waktu
 fakta = fakta.merge(dim_waktu[["id_waktu", "tanggal"]], on="tanggal", how="left")
@@ -140,19 +171,6 @@ fakta_penjualan = fakta[[
 ]]
 
 print(f"Jumlah transaksi di fakta: {len(fakta_penjualan)}")
-# Setelah hapus duplikat
-df_penjualan = df_penjualan.drop_duplicates()
-print(f"Setelah hapus duplikat: {len(df_penjualan)} (hilang {jumlah_awal - len(df_penjualan)})")
-
-# Setelah hapus qty negatif
-sebelum = len(df_penjualan)
-df_penjualan = df_penjualan[df_penjualan["qty"] > 0]
-print(f"Setelah hapus qty negatif/nol: {len(df_penjualan)} (hilang {sebelum - len(df_penjualan)})")
-
-# Setelah hapus harga/tanggal tidak valid
-sebelum = len(df_penjualan)
-df_penjualan = df_penjualan.dropna(subset=["harga_satuan", "tanggal"])
-print(f"Setelah hapus harga/tanggal invalid: {len(df_penjualan)} (hilang {sebelum - len(df_penjualan)})")
 
 # Simpan hasil transform supaya bisa dipakai 3_load.py
 dim_waktu.to_csv("temp_dim_waktu.csv", index=False)
