@@ -153,10 +153,10 @@ git push
 
 | Nama | Peran (PIC) |
 |---|---|
-| ... | Instalasi & Konfigurasi |
-| ... | Extract |
-| ... | Transform — Data Cleaning |
-| ... | Transform — Dimensi & Fakta |
-| ... | Load & Validasi |
+| Alfarel Abhipraya | Instalasi & Konfigurasi |
+| Fatih Ahmad Reza El N | Extract |
+| Ferry Abdurahman | Transform — Data Cleaning |
+| Satria Zaki Mahendrata | Transform — Dimensi & Fakta |
+| Ahsan Faqih | Load & Validasi |
 
 *(Catatan: seluruh anggota mengerjakan semua bagian pipeline; pembagian di atas hanya sebagai acuan PIC saat presentasi)*
