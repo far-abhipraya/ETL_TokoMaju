@@ -141,9 +141,7 @@ dim_waktu = pd.DataFrame({
     "tahun": tanggal_unik.dt.year,
 }).reset_index(drop=True)
 
-# ------------------------------------------------------------------------------
-# 📍 SURROGATE KEY (sk_waktu, sk_produk, sk_pelanggan) DIBENTUK DI SINI:
-# ------------------------------------------------------------------------------
+# SURROGATE KEY (sk_waktu, sk_produk, sk_pelanggan) DIBENTUK DI SINI:
 dim_waktu.insert(0, "sk_waktu", dim_waktu.index + 1)
 
 # Dimensi Produk
@@ -164,9 +162,7 @@ fakta = fakta[fakta["id_produk"].isin(dim_produk["id_produk"])]
 fakta = fakta[fakta["id_pelanggan"].isin(dim_pelanggan["id_pelanggan"])]
 print(f"Buang transaksi dengan id_produk/id_pelanggan tidak valid: {sebelum - len(fakta)} baris dihapus")
 
-# ------------------------------------------------------------------------------
-# 📍 SURROGATE KEY (sk_waktu, sk_produk, sk_pelanggan) DIPETAKAN KE TABEL FAKTA:
-# ------------------------------------------------------------------------------
+# SURROGATE KEY (sk_waktu, sk_produk, sk_pelanggan) DIPETAKAN KE TABEL FAKTA:
 fakta = fakta.merge(dim_waktu[["sk_waktu", "tanggal"]], on="tanggal", how="left")
 fakta = fakta.merge(dim_produk[["sk_produk", "id_produk"]], on="id_produk", how="left")
 fakta = fakta.merge(dim_pelanggan[["sk_pelanggan", "id_pelanggan"]], on="id_pelanggan", how="left")
