@@ -2,22 +2,16 @@ import pandas as pd
 from sqlalchemy import create_engine, text, types
 from sqlalchemy.dialects.mysql import YEAR
 
-# ----------------------------------------------------------------------
 # Koneksi ke database target
-# ----------------------------------------------------------------------
 engine_target = create_engine("mysql+pymysql://root:@localhost:3306/tokomain_dw")
 
-# ----------------------------------------------------------------------
 # Baca hasil transform
-# ----------------------------------------------------------------------
 dim_waktu = pd.read_csv("temp_dim_waktu.csv")
 dim_produk = pd.read_csv("temp_dim_produk.csv")
 dim_pelanggan = pd.read_csv("temp_dim_pelanggan.csv")
 fakta_penjualan = pd.read_csv("temp_fakta_penjualan.csv")
 
-# ----------------------------------------------------------------------
 # Bersihkan tabel lama jika sudah ada (mencegah error Foreign Key saat replace)
-# ----------------------------------------------------------------------
 with engine_target.connect() as conn:
     conn.execute(text("SET FOREIGN_KEY_CHECKS = 0;"))
     conn.execute(text("DROP TABLE IF EXISTS fakta_penjualan;"))
@@ -27,9 +21,7 @@ with engine_target.connect() as conn:
     conn.execute(text("SET FOREIGN_KEY_CHECKS = 1;"))
     conn.commit()
 
-# ----------------------------------------------------------------------
 # Load dim_waktu
-# ----------------------------------------------------------------------
 dim_waktu.to_sql(
     "dim_waktu",
     engine_target,
@@ -47,9 +39,7 @@ dim_waktu.to_sql(
     }
 )
 
-# ----------------------------------------------------------------------
 # Load dim_produk
-# ----------------------------------------------------------------------
 dim_produk.to_sql(
     "dim_produk",
     engine_target,
@@ -64,9 +54,7 @@ dim_produk.to_sql(
     }
 )
 
-# ----------------------------------------------------------------------
 # Load dim_pelanggan
-# ----------------------------------------------------------------------
 dim_pelanggan.to_sql(
     "dim_pelanggan",
     engine_target,
@@ -82,9 +70,7 @@ dim_pelanggan.to_sql(
     }
 )
 
-# ----------------------------------------------------------------------
 # Load fakta_penjualan
-# ----------------------------------------------------------------------
 fakta_penjualan.to_sql(
     "fakta_penjualan",
     engine_target,
@@ -104,9 +90,7 @@ fakta_penjualan.to_sql(
 
 print("✅ Semua tabel berhasil di-load ke MySQL dengan tipe data yang sesuai!")
 
-# ----------------------------------------------------------------------
 # Tambahkan Primary Key & Foreign Key
-# ----------------------------------------------------------------------
 with engine_target.connect() as conn:
     # Primary Key tiap tabel dimensi
     conn.execute(text("ALTER TABLE dim_waktu ADD PRIMARY KEY (sk_waktu)"))
