@@ -111,9 +111,9 @@ SELECT
     c.nama AS nama_pelanggan, c.kota,
     f.qty, f.harga_satuan, f.total_penjualan, f.metode_bayar
 FROM fakta_penjualan f
-JOIN dim_waktu w ON f.id_waktu = w.id_waktu
-JOIN dim_produk p ON f.id_produk = p.id_produk
-JOIN dim_pelanggan c ON f.id_pelanggan = c.id_pelanggan
+JOIN dim_waktu w ON f.sk_waktu = w.sk_waktu
+JOIN dim_produk p ON f.sk_produk = p.sk_produk
+JOIN dim_pelanggan c ON f.sk_pelanggan = c.sk_pelanggan
 LIMIT 10;
 ```
 

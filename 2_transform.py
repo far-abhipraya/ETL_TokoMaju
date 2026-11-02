@@ -140,13 +140,19 @@ dim_waktu = pd.DataFrame({
     "kuartal": tanggal_unik.dt.quarter,
     "tahun": tanggal_unik.dt.year,
 }).reset_index(drop=True)
-dim_waktu.insert(0, "id_waktu", dim_waktu.index + 1)
+
+# ------------------------------------------------------------------------------
+# 📍 SURROGATE KEY (sk_waktu, sk_produk, sk_pelanggan) DIBENTUK DI SINI:
+# ------------------------------------------------------------------------------
+dim_waktu.insert(0, "sk_waktu", dim_waktu.index + 1)
 
 # Dimensi Produk
 dim_produk = df_produk[["id_produk", "nama_produk", "kategori", "merek"]].copy()
+dim_produk.insert(0, "sk_produk", dim_produk.index + 1)
 
 # Dimensi Pelanggan
 dim_pelanggan = df_pelanggan[["id_pelanggan", "nama", "jenis_kelamin", "kota", "provinsi"]].copy()
+dim_pelanggan.insert(0, "sk_pelanggan", dim_pelanggan.index + 1)
 
 # Buat Tabel Fakta
 fakta = df_penjualan.copy()
@@ -158,15 +164,19 @@ fakta = fakta[fakta["id_produk"].isin(dim_produk["id_produk"])]
 fakta = fakta[fakta["id_pelanggan"].isin(dim_pelanggan["id_pelanggan"])]
 print(f"Buang transaksi dengan id_produk/id_pelanggan tidak valid: {sebelum - len(fakta)} baris dihapus")
 
-# Gabungkan dengan dim_waktu untuk dapat id_waktu
-fakta = fakta.merge(dim_waktu[["id_waktu", "tanggal"]], on="tanggal", how="left")
+# ------------------------------------------------------------------------------
+# 📍 SURROGATE KEY (sk_waktu, sk_produk, sk_pelanggan) DIPETAKAN KE TABEL FAKTA:
+# ------------------------------------------------------------------------------
+fakta = fakta.merge(dim_waktu[["sk_waktu", "tanggal"]], on="tanggal", how="left")
+fakta = fakta.merge(dim_produk[["sk_produk", "id_produk"]], on="id_produk", how="left")
+fakta = fakta.merge(dim_pelanggan[["sk_pelanggan", "id_pelanggan"]], on="id_pelanggan", how="left")
 
 # Hitung total penjualan
 fakta["total_penjualan"] = fakta["qty"] * fakta["harga_satuan"]
 
 # Pilih kolom sesuai star schema
 fakta_penjualan = fakta[[
-    "id_transaksi", "id_waktu", "id_produk", "id_pelanggan",
+    "id_transaksi", "sk_waktu", "sk_produk", "sk_pelanggan",
     "qty", "harga_satuan", "total_penjualan", "metode_bayar"
 ]]
 
