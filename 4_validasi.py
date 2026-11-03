@@ -2,23 +2,19 @@ import sys
 import pandas as pd
 from sqlalchemy import create_engine, text
 
-# ----------------------------------------------------------------------
 # Konfigurasi
-# ----------------------------------------------------------------------
+
 # Samakan dengan connection string di 3_load.py
 URL_DW = "mysql+pymysql://root:260412@localhost:3307/tokomain_dw"
 TOLERANSI = 1.0  # toleransi selisih (Rp) untuk pembulatan
-
 
 def rp(x):
     """Format angka ke Rupiah, contoh: Rp 446.380.700"""
     return "Rp " + f"{x:,.0f}".replace(",", ".")
 
+# SEBELUM ETL: hitung dari data mentah (temp_penjualan.csv)
 
-# ----------------------------------------------------------------------
-# 1. SEBELUM ETL: hitung dari data mentah (temp_penjualan.csv)
-#    Logika parsing harga HARUS sama dengan 2_transform.py
-# ----------------------------------------------------------------------
+# Logika parsing harga HARUS sama dengan 2_transform.py
 raw = pd.read_csv("temp_penjualan.csv")
 
 raw["id_produk"] = raw["id_produk"].astype(str).str.strip()
@@ -39,9 +35,7 @@ dim_pelanggan = pd.read_csv("temp_dim_pelanggan.csv")
 baris_sebelum = len(raw)
 total_sebelum = raw["nilai"].sum()
 
-# ----------------------------------------------------------------------
-# 2. SESUDAH ETL: query langsung ke tabel fakta di MySQL
-# ----------------------------------------------------------------------
+# SESUDAH ETL: query langsung ke tabel fakta di MySQL
 engine = create_engine(URL_DW)
 with engine.connect() as conn:
     baris_sesudah, total_sesudah = conn.execute(
@@ -50,9 +44,7 @@ with engine.connect() as conn:
 baris_sesudah = int(baris_sesudah)
 total_sesudah = float(total_sesudah)
 
-# ----------------------------------------------------------------------
-# 3. Tabel perbandingan utama
-# ----------------------------------------------------------------------
+# Tabel perbandingan utama
 sel_baris = baris_sesudah - baris_sebelum
 sel_total = total_sesudah - total_sebelum
 
@@ -65,9 +57,7 @@ print(f"{'Jumlah baris':<24}{baris_sebelum:>18,}{baris_sesudah:>18,}{sel_baris:>
 print(f"{'Total penjualan':<24}{rp(total_sebelum):>18}{rp(total_sesudah):>18}{rp(sel_total):>16}")
 print(f"Persentase total berubah : {sel_total / total_sebelum * 100:.2f}%")
 
-# ----------------------------------------------------------------------
-# 4. Waterfall: jelaskan selisih tahap demi tahap (mengikuti 2_transform.py)
-# ----------------------------------------------------------------------
+# Waterfall: jelaskan selisih tahap demi tahap (mengikuti 2_transform.py)
 tahap = []
 d = raw
 tahap.append(("Data mentah", d))
@@ -100,9 +90,7 @@ for nama, df_t in tahap:
     prev_total = tot
 total_harapan = prev_total
 
-# ----------------------------------------------------------------------
-# 5. Status
-# ----------------------------------------------------------------------
+# Status
 cocok = abs(total_sesudah - total_harapan) <= TOLERANSI
 print("\n" + "=" * 78)
 print("HASIL VALIDASI")
